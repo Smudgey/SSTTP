@@ -2,6 +2,7 @@ package uk.gov.hmrc.SSTTP.controllers
 
 import play.api.mvc.Action
 import play.mvc.Controller
+import uk.gov.hmrc.SSTTP.services.InterestRateCalculator
 import uk.gov.hmrc.play.microservice.controller.BaseController
 
 import scala.concurrent.Future
@@ -9,7 +10,7 @@ import scala.concurrent.Future
 /**
   * Created by MacZ on 24/08/2016.
   */
-object InterestRateController extends InterestRateController
+object InterestRateController extends InterestRateController with InterestRateCalculator
 
 trait InterestRateController extends BaseController{
 

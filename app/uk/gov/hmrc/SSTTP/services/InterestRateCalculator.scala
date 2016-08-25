@@ -65,8 +65,11 @@ trait InterestRateCalculator extends BaseController{
     System.out.println("Week of Month :" + wk)
 
     //getting end date week number
+    DueDate.setMinimalDaysInFirstWeek(1)
+    val wk2 = DueDate.get(Calendar.WEEK_OF_MONTH)
+    System.out.println("Week of Month :" + wk2)
 
-
+   val difference =  (wk2 - wk)/4 //months between the two dates
   }
 
 

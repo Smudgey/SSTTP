@@ -12,6 +12,6 @@ object InterestRateController extends InterestRateController
 trait InterestRateController extends BaseController with InterestRateCalculator {
 
   def calculate() = Action.async { implicit request =>
-    Future.successful(Ok("Hello world"))
+    Future.successful(Ok("Interest Rate Calculator"))
   }
 }

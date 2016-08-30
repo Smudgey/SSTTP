@@ -6,7 +6,6 @@ import play.api.test.FakeRequest
 import uk.gov.hmrc.SSTTP.controllers.InterestRateController
 import uk.gov.hmrc.play.test.{UnitSpec, WithFakeApplication}
 
-
 class InterestRateCalculatorSpec extends UnitSpec with WithFakeApplication {
 
   val fakeRequest = FakeRequest("GET", "/")

@@ -58,10 +58,4 @@ class InterestRateCalculatorSpec extends UnitSpec with WithFakeApplication {
     }
   }
 
-  "Dummy test" should {
-    "just for dev testing" in {
-
-    }
-  }
-
 }

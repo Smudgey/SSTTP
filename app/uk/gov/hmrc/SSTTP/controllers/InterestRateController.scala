@@ -1,19 +1,32 @@
 package uk.gov.hmrc.SSTTP.controllers
 
-import play.api.mvc.Action
+import play.api.libs.json.{JsValue, Json}
+import play.api.mvc.{Action, Result}
 import play.mvc.Controller
+import uk.gov.hmrc.SSTTP.models.TaxToPayData
+import uk.gov.hmrc.SSTTP.services.InterestRateCalculator
 import uk.gov.hmrc.play.microservice.controller.BaseController
+import scala.concurrent.ExecutionContext.Implicits.global
 
 import scala.concurrent.Future
 
-/**
-  * Created by MacZ on 24/08/2016.
-  */
 object InterestRateController extends InterestRateController
 
-trait InterestRateController extends BaseController{
+trait InterestRateController extends BaseController with InterestRateCalculator {
 
-  def calculate() = Action.async { implicit request =>
-    Future.successful(Ok("Hello world"))
+  def show() = Action.async { implicit request =>
+    Future.successful(Ok("Interest Rate Calculator"))
+  }
+
+  def calculateInterest: Action[JsValue] = Action.async(parse.json) { implicit request =>
+    withJsonBody[TaxToPayData] {
+      taxDetails =>
+        InterestRateController.CalculateInterest(taxDetails.debtAmount, taxDetails.taxRate, taxDetails.numberDays) map {
+          interestAmount: Double =>
+            Ok(Json.toJson(
+              interestAmount.toString
+            ))
+        }
+    }
   }
 }

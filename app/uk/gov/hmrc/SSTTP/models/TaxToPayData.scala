@@ -7,8 +7,8 @@ import play.api.libs.json.Reads
 import play.api.libs.json.Format
 
 case class TaxToPayData(//dueDate: DateTime,
-                        numberDays: Int,
                         debtAmount: Double,
+                        numberDays: Int,
                         //startDate: DateTime,
                         //paymentFrequency: String,
                         taxRate: Double)

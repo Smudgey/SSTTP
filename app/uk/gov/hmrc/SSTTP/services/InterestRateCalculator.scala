@@ -51,7 +51,6 @@ trait InterestRateCalculator extends BaseController{
    val total: Double  = amount + CalculateInterest(amount, interestRate, Days)
 
 
-
   def paymentSchedule (startDate: Calendar, DueDate: Calendar, initialPayDate: Date, interestCharged: Double, paymentFreq: String,WorkingDays: Int): Unit ={
 
     val currentDate = Calendar.getInstance().getTime()

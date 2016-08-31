@@ -1,3 +1,5 @@
 # microservice specific routes
 
 GET        /hello-world             uk.gov.hmrc.SSTTP.controllers.MicroserviceHelloWorld.hello
+
+POST        /feedback               uk.gov.hmrc.SSTTP.controllers.MicroserviceHelloWorld.hello

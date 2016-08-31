@@ -1,4 +1,4 @@
 # microservice specific routes
 
 GET        /hello-world             uk.gov.hmrc.SSTTP.controllers.MicroserviceHelloWorld.hello
-GET        /InterestRateCalculator  uk.gov.hmrc.SSTTP.controllers.InterestRateController.calculate
+POST       /calculate-interest      uk.gov.hmrc.SSTTP.controllers.InterestRateController.calculateInterest

@@ -9,7 +9,7 @@ object InterestRateCalculator extends InterestRateCalculator
 
 trait InterestRateCalculator extends BaseController{
 
-  def CalculateInterest(amount: Double, rate: Double, numberDays: Int): Future[Double] =
+  def CalculateInterest(amount: Double,numberDays: Int, rate: Double): Future[Double] =
     Future.successful(BigDecimal((amount * rate * numberDays) / 36600).setScale(2, BigDecimal.RoundingMode.FLOOR).toDouble)
 
   def calcWorkingDays(existingDebit: Boolean) : Int = existingDebit match {
